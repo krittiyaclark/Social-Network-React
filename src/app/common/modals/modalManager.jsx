@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import LoginForm from '../../../../features/auth/LoginForm'
+import LoginForm from '../../../features/auth/LoginForm'
 
 export default function ModalManager() {
 	const modalLookup = { LoginForm }
