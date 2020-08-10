@@ -1,6 +1,7 @@
 import React from 'react'
 import { Segment, Button, Grid, Icon } from 'semantic-ui-react'
 import { format } from 'date-fns'
+import EventDetailedMap from './EventDetailedMap'
 
 function EventDetailedInfo({ event }) {
 	return (
@@ -38,6 +39,7 @@ function EventDetailedInfo({ event }) {
 					</Grid.Column>
 				</Grid>
 			</Segment>
+			<EventDetailedMap latLng={event.venue.latLng} />
 		</Segment.Group>
 	)
 }

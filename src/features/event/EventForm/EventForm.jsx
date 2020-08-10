@@ -26,11 +26,11 @@ function EventForm({ match, history }) {
 		description: '',
 		city: {
 			address: '',
-			latlng: null,
+			latLng: null,
 		},
 		venue: {
 			address: '',
-			latlng: null,
+			latLng: null,
 		},
 		date: '',
 	}
