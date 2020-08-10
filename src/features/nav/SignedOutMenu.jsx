@@ -1,9 +1,9 @@
 import React from 'react'
 import { Menu, Button } from 'semantic-ui-react'
 import { useDispatch } from 'react-redux'
-import { openModal } from '../../app/common/form/modals/modalReducer'
+import { openModal } from '../../app/common/modals/modalReducer'
 
-function SignedOutMenu({ setAuthenticated }) {
+export default function SignedOutMenu({ setAuthenticated }) {
 	const dispatch = useDispatch()
 	return (
 		<Menu.Item position='right'>
@@ -22,5 +22,3 @@ function SignedOutMenu({ setAuthenticated }) {
 		</Menu.Item>
 	)
 }
-
-export default SignedOutMenu
