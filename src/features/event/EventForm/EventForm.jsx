@@ -8,7 +8,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import MyTextInput from '../../../app/common/form/MyTextInput'
 import MyTextArea from '../../../app/common/form/MyTextArea'
-import MyselectInput from '../../../app/common/form/MyselectInput'
+import MySelectInput from '../../../app/common/form/MySelectInput'
 import { categoryData } from '../../../app/api/categoryOptions'
 import MyDateInput from '../../../app/common/form/MyDateInput'
 
@@ -59,7 +59,7 @@ function EventForm({ match, history }) {
 					<Form className='ui form'>
 						<Header sub color='teal' content='Event Detail' />
 						<MyTextInput name='title' placeholder='Event title' />
-						<MyselectInput
+						<MySelectInput
 							name='category'
 							placeholder='Category'
 							options={categoryData}
