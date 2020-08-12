@@ -13,7 +13,7 @@ import { loadEvents } from './features/event/eventActions'
 
 const store = configureStore()
 
-store.dispatch(loadEvents)
+store.dispatch(loadEvents())
 
 const rootEl = document.getElementById('root')
 
