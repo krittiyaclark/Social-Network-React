@@ -9,14 +9,15 @@ import { closeModal } from '../../app/common/modals/modalReducer'
 import { registerInFirebase } from '../../app/firestore/firebaseService'
 import SocialLogin from './SocialLogin'
 
-function LoginForm() {
+export default function RegisterForm() {
 	const dispatch = useDispatch()
 
 	return (
-		<ModalWrapper size='mini' header='Sign in to Social Network'>
+		<ModalWrapper size='mini' header='Register to Re-vents'>
 			<Formik
-				initialValues={{ email: '', password: '' }}
+				initialValues={{ displayName: '', email: '', password: '' }}
 				validationSchema={Yup.object({
+					displayName: Yup.string().required(),
 					email: Yup.string().required().email(),
 					password: Yup.string().required(),
 				})}
@@ -26,12 +27,13 @@ function LoginForm() {
 						setSubmitting(false)
 						dispatch(closeModal())
 					} catch (error) {
-						setErrors({ auth: 'Problem with useramen or password' })
+						setErrors({ auth: error.message })
 						setSubmitting(false)
 					}
 				}}>
 				{({ isSubmitting, isValid, dirty, errors }) => (
 					<Form className='ui form'>
+						<MyTextInput name='displayName' placeholder='DisplayName' />
 						<MyTextInput name='email' placeholder='Email Address' />
 						<MyTextInput
 							name='password'
@@ -53,7 +55,7 @@ function LoginForm() {
 							fluid
 							size='large'
 							color='teal'
-							content='Login'
+							content='Register'
 						/>
 						<Divider horizontal>Or</Divider>
 						<SocialLogin />
@@ -63,5 +65,3 @@ function LoginForm() {
 		</ModalWrapper>
 	)
 }
-
-export default LoginForm
