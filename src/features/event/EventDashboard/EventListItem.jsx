@@ -14,7 +14,7 @@ function EventListItem({ event }) {
 						<Item.Image size='tiny' circular src={event.hostPhotoURL} />
 						<Item.Content>
 							<Item.Header content={event.title} />
-							<Item.Description>{event.hostedBy}</Item.Description>
+							<Item.Description>Hosted by {event.hostedBy}</Item.Description>
 							{event.isCancelled && (
 								<Label
 									style={{ top: '-40px' }}
