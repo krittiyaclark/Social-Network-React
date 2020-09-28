@@ -24,7 +24,6 @@ function useFirestoreDoc({ query, data, deps, shouldExecute = true }) {
 					)
 					return
 				}
-
 				data(dataFromSnapshot(snapshot))
 				dispatch(asyncActionFinish())
 			},
