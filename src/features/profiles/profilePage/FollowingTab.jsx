@@ -10,7 +10,7 @@ import { listenToFollowings, listenToFollowers } from '../profileAction'
 
 import ProfileCard from './ProfileCard'
 
-function FolloweringTab({ profile, activeTab }) {
+function FollowingTab({ profile, activeTab }) {
 	const dispatch = useDispatch()
 	const { followings, followers } = useSelector((state) => state.profile)
 
@@ -53,4 +53,4 @@ function FolloweringTab({ profile, activeTab }) {
 	)
 }
 
-export default FolloweringTab
+export default FollowingTab

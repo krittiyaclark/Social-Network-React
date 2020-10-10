@@ -3,7 +3,7 @@ import { Tab } from 'semantic-ui-react'
 import AboutTab from './AboutTab'
 import PhotosTab from './PhotosTab'
 import EventsTab from './EventsTab'
-import FolloweringTab from './FolloweringTab'
+import FollowingTab from './FollowingTab'
 
 function ProfileContent({ profile, isCurrentUser }) {
 	const [activeTab, setActiveTab] = useState(0)
@@ -24,7 +24,7 @@ function ProfileContent({ profile, isCurrentUser }) {
 		{
 			menuItem: 'Followers',
 			render: () => (
-				<FolloweringTab
+				<FollowingTab
 					key={profile.id}
 					profile={profile}
 					activeTab={activeTab}
@@ -34,7 +34,7 @@ function ProfileContent({ profile, isCurrentUser }) {
 		{
 			menuItem: 'Following',
 			render: () => (
-				<FolloweringTab
+				<FollowingTab
 					key={profile.id}
 					profile={profile}
 					activeTab={activeTab}
