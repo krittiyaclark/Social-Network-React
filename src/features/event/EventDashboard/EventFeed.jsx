@@ -34,9 +34,9 @@ function EventFeed() {
 					{feed &&
 						feed.map((post) =>
 							post.length ? (
-								<EventFeedItem post={post} key={post.id} />
-							) : (
 								'No Event'
+							) : (
+								<EventFeedItem post={post} key={post.id} />
 							)
 						)}
 				</Feed>
