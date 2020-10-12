@@ -2,8 +2,7 @@ import React from 'react'
 import { Formik, Form, Field } from 'formik'
 import { addEventChatComment } from '../../../app/firestore/firebaseService'
 import { toast } from 'react-toastify'
-import { Button, Loader } from 'semantic-ui-react'
-import MyTextArea from '../../../app/common/form/MyTextArea'
+import { Loader } from 'semantic-ui-react'
 import * as Yup from 'yup'
 
 function EventDetailedChatForm({ eventId, parentId, closeForm }) {

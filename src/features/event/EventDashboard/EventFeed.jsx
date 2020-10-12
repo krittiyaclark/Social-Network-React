@@ -32,13 +32,7 @@ function EventFeed() {
 			<Segment attached='bottom'>
 				<Feed>
 					{feed &&
-						feed.map((post) =>
-							post.length ? (
-								'No Event'
-							) : (
-								<EventFeedItem post={post} key={post.id} />
-							)
-						)}
+						feed.map((post) => <EventFeedItem post={post} key={post.id} />)}
 				</Feed>
 			</Segment>
 		</>
