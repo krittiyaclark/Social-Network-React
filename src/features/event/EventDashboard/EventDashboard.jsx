@@ -5,47 +5,38 @@ import EventList from './EventList'
 import { useSelector, useDispatch } from 'react-redux'
 import EventListItemPlaceholder from './EventListItemPlaceholder'
 import EventFilters from './EventFilters'
-import { clearEvents, fetchEvents } from '../eventActions'
+import { fetchEvents } from '../eventActions'
 import EventFeed from './EventFeed'
+import { RETAIN_STATE } from '../eventConstants'
 
 function EventDashboard() {
 	const limit = 2
 	const dispatch = useDispatch()
-	const { events, moreEvents } = useSelector((state) => state.event)
+	const {
+		events,
+		moreEvents,
+		lastVisible,
+		filter,
+		startDate,
+		retainState,
+	} = useSelector((state) => state.event)
 	const { loading } = useSelector((state) => state.async)
 	const { authenticated } = useSelector((state) => state.auth)
-	const [lastDocSnapshot, setLastDocSnapshot] = useState(null)
 	const [loadingInitial, setLoadingInitial] = useState(false)
-	const [predicate, setPredicate] = useState(
-		new Map([
-			['startDate', new Date()],
-			['filter', 'all'],
-		])
-	)
-
-	function handleSetPredicate(key, value) {
-		dispatch(clearEvents())
-		setLastDocSnapshot(null)
-		setPredicate(new Map(predicate.set(key, value)))
-	}
 
 	useEffect(() => {
+		if (retainState) return
 		setLoadingInitial(true)
-		dispatch(fetchEvents(predicate, limit)).then((lastVisible) => {
-			setLastDocSnapshot(lastVisible)
+		dispatch(fetchEvents(filter, startDate, limit)).then(() => {
 			setLoadingInitial(false)
 		})
 		return () => {
-			dispatch(clearEvents())
+			dispatch({ type: RETAIN_STATE })
 		}
-	}, [dispatch, predicate])
+	}, [dispatch, filter, startDate, retainState])
 
 	function handleFetchNextEvents() {
-		dispatch(fetchEvents(predicate, limit, lastDocSnapshot)).then(
-			(lastVisible) => {
-				setLastDocSnapshot(lastVisible)
-			}
-		)
+		dispatch(fetchEvents(lastVisible, filter, startDate, limit))
 	}
 
 	return (
@@ -66,11 +57,7 @@ function EventDashboard() {
 			</Grid.Column>
 			<Grid.Column width={6}>
 				{authenticated && <EventFeed />}
-				<EventFilters
-					predicate={predicate}
-					setPredicate={handleSetPredicate}
-					loading={loading}
-				/>
+				<EventFilters loading={loading} />
 			</Grid.Column>
 			<Grid.Column width={10}>
 				<Loader active={loading} />
