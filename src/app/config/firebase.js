@@ -5,7 +5,7 @@ import 'firebase/auth'
 import 'firebase/storage'
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyAm1-kddgLkqqqiAFINLf87dKCdPXcEAgM',
+	apiKey: process.env.REACT_APP_API_KEY,
 	authDomain: 'social-network-638c8.firebaseapp.com',
 	databaseURL: 'https://social-network-638c8.firebaseio.com',
 	projectId: 'social-network-638c8',

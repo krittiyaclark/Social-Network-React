@@ -3,14 +3,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Modal, Button, Divider } from 'semantic-ui-react'
 import { openModal } from '../../app/common/modals/modalReducer'
 
-function UnauthModal({ history }) {
+function UnauthModal({ history, setModalOpen }) {
 	const [open, setOpen] = useState(true)
 	const { prevLocation } = useSelector((state) => state.auth)
 	const dispatch = useDispatch()
 
 	function handleClose() {
+		if (!history) {
+			setOpen(false)
+			setModalOpen(false)
+			return
+		}
 		if (history && prevLocation) {
 			history.push(prevLocation.pathname)
+		} else {
+			history.push('/events')
 		}
 		setOpen(false)
 	}
@@ -18,7 +25,7 @@ function UnauthModal({ history }) {
 	function handleOpenLoginModal(modalType) {
 		dispatch(openModal({ modalType }))
 		setOpen(false)
-		// setModalOpen(false)
+		setModalOpen(false)
 	}
 
 	return (

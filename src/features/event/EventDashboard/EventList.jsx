@@ -1,7 +1,6 @@
 import React from 'react'
 
 import InfiniteScroll from 'react-infinite-scroller'
-
 import EventListItem from './EventListItem'
 
 function EventList({ events, moreEvents, loading, getNextEvents }) {

@@ -30,10 +30,15 @@ function EventFeed() {
 		<>
 			<Header attached color='teal' icon='newspaper' content='News feed' />
 			<Segment attached='bottom'>
-				<Feed>
-					{feed &&
-						feed.map((post) => <EventFeedItem post={post} key={post.id} />)}
-				</Feed>
+				{feed && feed.length > 0 ? (
+					<Feed>
+						{feed.map((post) => (
+							<EventFeedItem post={post} key={post.id} />
+						))}
+					</Feed>
+				) : (
+					<p>No Events</p>
+				)}
 			</Segment>
 		</>
 	)
