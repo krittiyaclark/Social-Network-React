@@ -3,15 +3,20 @@ import React, { useState } from 'react'
 import { Segment, Button, Header, Confirm } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { listenToSelectedEvent } from '../eventActions'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
+import { Redirect } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import CKEditor from 'ckeditor4-react'
+
+import { listenToSelectedEvent } from '../eventActions'
 import MyTextInput from '../../../app/common/form/MyTextInput'
 import MyTextArea from '../../../app/common/form/MyTextArea'
 import MySelectInput from '../../../app/common/form/MySelectInput'
 import { categoryData } from '../../../app/api/categoryOptions'
 import MyDateInput from '../../../app/common/form/MyDateInput'
 import MyPlaceInput from '../../../app/common/form/MyPlaceInput'
+import LoadingComponent from '../../../app/layout/LoadingComponent'
 import useFirestoreDoc from '../../../app/hooks/useFirestoreDoc'
 import {
 	listenToEventFromFirestore,
@@ -19,9 +24,6 @@ import {
 	addEventToFirestore,
 	cancelEventToggle,
 } from '../../../app/firestore/firestoreService'
-import LoadingComponent from '../../../app/layout/LoadingComponent'
-import { Redirect } from 'react-router-dom'
-import { toast } from 'react-toastify'
 
 function EventForm({ match, history }) {
 	const dispatch = useDispatch()
@@ -29,19 +31,21 @@ function EventForm({ match, history }) {
 	const [confirmOpen, setConfirmOpen] = useState(false)
 	const { selectedEvent } = useSelector((state) => state.event)
 	const { loading, error } = useSelector((state) => state.async)
+	const [eventDesc, setEventDesc] = useState('')
 
 	const initialValues = selectedEvent ?? {
 		title: '',
 		category: '',
 		description: '',
-		city: {
-			address: '',
-			latLng: null,
-		},
-		venue: {
-			address: '',
-			latLng: null,
-		},
+		// eventLink: '',
+		// city: {
+		// 	address: '',
+		// 	latLng: null,
+		// },
+		// venue: {
+		// 	address: '',
+		// 	latLng: null,
+		// },
 		date: '',
 	}
 
@@ -49,12 +53,13 @@ function EventForm({ match, history }) {
 		title: Yup.string().required('You must provide a title'),
 		category: Yup.string().required('You must provide a category'),
 		description: Yup.string().required(),
-		city: Yup.object().shape({
-			address: Yup.string().required('City is required'),
-		}),
-		venue: Yup.object().shape({
-			address: Yup.string().required('Venue is required'),
-		}),
+		// eventLink: Yup.string().required(),
+		// city: Yup.object().shape({
+		// 	address: Yup.string().required('City is required'),
+		// }),
+		// venue: Yup.object().shape({
+		// 	address: Yup.string().required('Venue is required'),
+		// }),
 		date: Yup.string().required(),
 	})
 
@@ -106,9 +111,17 @@ function EventForm({ match, history }) {
 							placeholder='Category'
 							options={categoryData}
 						/>
+						<Header sub color='teal' content='Host Event Description' />
+						{/* <CKEditor
+							onChang={(evt) => setEventDesc(evt.editor.getData())}
+							name='description'
+							placeholder='Description'
+						/> */}
 						<MyTextArea name='description' placeholder='Description' row={3} />
-						<Header sub color='teal' content='Event Location Detail' />
-						<MyPlaceInput name='city' placeholder='City' />
+						{/* <Header sub color='teal' content='Host Event Link' />
+						<MyTextInput name='Event Link' placeholder='Event Link' /> */}
+
+						{/* <MyPlaceInput name='city' placeholder='City' />
 						<MyPlaceInput
 							name='venue'
 							disabled={!values.city.latLng}
@@ -118,7 +131,7 @@ function EventForm({ match, history }) {
 								radius: 1000,
 								types: ['establishment'],
 							}}
-						/>
+						/> */}
 						<MyDateInput
 							name='date'
 							placeholderText='Event date'

@@ -36,7 +36,7 @@ function EventDashboard() {
 	}, [dispatch, filter, startDate, retainState])
 
 	function handleFetchNextEvents() {
-		dispatch(fetchEvents(lastVisible, filter, startDate, limit))
+		dispatch(fetchEvents(filter, startDate, limit, lastVisible))
 	}
 
 	return (
