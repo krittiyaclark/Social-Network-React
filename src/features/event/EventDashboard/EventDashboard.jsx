@@ -15,9 +15,9 @@ function EventDashboard() {
 	const {
 		events,
 		moreEvents,
-		lastVisible,
 		filter,
 		startDate,
+		lastVisible,
 		retainState,
 	} = useSelector((state) => state.event)
 	const { loading } = useSelector((state) => state.async)
@@ -27,7 +27,7 @@ function EventDashboard() {
 	useEffect(() => {
 		if (retainState) return
 		setLoadingInitial(true)
-		dispatch(fetchEvents(filter, startDate, limit)).then(() => {
+		dispatch(fetchEvents(filter, startDate, limit)).then((lastVisible) => {
 			setLoadingInitial(false)
 		})
 		return () => {

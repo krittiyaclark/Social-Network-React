@@ -7,7 +7,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { Redirect } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import CKEditor from 'ckeditor4-react'
+// import CKEditor from 'ckeditor4-react'
 
 import { listenToSelectedEvent } from '../eventActions'
 import MyTextInput from '../../../app/common/form/MyTextInput'
