@@ -8,6 +8,7 @@ import {
 	CLEAR_EVENTS,
 	SET_FILTER,
 	SET_START_DATE,
+	CLEAR_SELECTED_EVENT,
 } from './eventConstants'
 import {
 	asyncActionStart,
@@ -61,6 +62,12 @@ export function listenToSelectedEvent(event) {
 	return {
 		type: LISTEN_TO_SELECTED_EVENT,
 		payload: event,
+	}
+}
+
+export function clearSelectedEvent() {
+	return {
+		type: CLEAR_SELECTED_EVENT,
 	}
 }
 

@@ -33,9 +33,9 @@ function EventDetailedInfo({ event }) {
 					<Grid.Column width={1}>
 						<Icon name='marker' size='large' color='teal' />
 					</Grid.Column>
-					<Grid.Column width={11}>
+					{/* <Grid.Column width={11}>
 						<span>{event.venue.address}</span>
-					</Grid.Column>
+					</Grid.Column> */}
 					<Grid.Column width={4}>
 						<Button
 							onClick={() => setMapOpenToggle(!mapOpen)}
