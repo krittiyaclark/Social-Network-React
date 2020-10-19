@@ -41,7 +41,7 @@ function EventDashboard() {
 
 	return (
 		<Grid>
-			<Grid.Column width={10}>
+			<Grid.Column mobile={16} tablet={5} computer={10}>
 				{loadingInitial && (
 					<>
 						<EventListItemPlaceholder />
@@ -55,11 +55,11 @@ function EventDashboard() {
 					moreEvents={moreEvents}
 				/>
 			</Grid.Column>
-			<Grid.Column width={6}>
+			<Grid.Column mobile={16} tablet={5} computer={6}>
 				{authenticated && <EventFeed />}
 				<EventFilters loading={loading} />
 			</Grid.Column>
-			<Grid.Column width={10}>
+			<Grid.Column mobile={16} tablet={5} computer={10}>
 				<Loader active={loading} />
 			</Grid.Column>
 		</Grid>
