@@ -22,6 +22,7 @@ function NavBar() {
 						Social Network
 					</Menu.Item>
 					<Menu.Item as={NavLink} to='/events' name='Events' />
+					<Menu.Item as={NavLink} to='/sandbox' name='Sandbox' />
 					{authenticated && (
 						<Menu.Item as={NavLink} to='/createEvent'>
 							<Button positive inverted content='Create Event'></Button>
