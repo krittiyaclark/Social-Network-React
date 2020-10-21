@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container } from 'semantic-ui-react'
 import { Route, useLocation } from 'react-router-dom'
 
@@ -15,12 +15,16 @@ import { useSelector } from 'react-redux'
 import LoadingComponent from './LoadingComponent'
 import ProfilePage from '../../features/profiles/profilePage/ProfilePage'
 import PrivateRoute from './PrivateRoute'
+import Sidebarnav from '../../features/nav/Sidebarnav'
 
-function App() {
+function App({ onToggle }) {
 	const { key } = useLocation()
 	const { initialized } = useSelector((state) => state.async)
+	const [isOpen, setOpen] = useState(false)
 
 	if (!initialized) return <LoadingComponent content='Loading app...' />
+
+	const handleToggle = () => setOpen(!isOpen)
 
 	return (
 		<>
@@ -31,7 +35,8 @@ function App() {
 				path={'/(.+)'}
 				render={() => (
 					<>
-						<NavBar />
+						<NavBar onToggle={handleToggle} />
+						<Sidebarnav onToggle={isOpen} />
 						<Container className='main'>
 							<Route exact path='/events' component={EventDashboard} />
 							<Route path='/events/:id' component={EventDetailedPage} />
