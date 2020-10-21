@@ -42,15 +42,8 @@ function EventForm({ match, history, location }) {
 		title: '',
 		category: '',
 		description: '',
-		// eventLink: '',
-		// city: {
-		// 	address: '',
-		// 	latLng: null,
-		// },
-		// venue: {
-		// 	address: '',
-		// 	latLng: null,
-		// },
+		link: '',
+		eventNameLink: '',
 		date: '',
 	}
 
@@ -58,13 +51,8 @@ function EventForm({ match, history, location }) {
 		title: Yup.string().required('You must provide a title'),
 		category: Yup.string().required('You must provide a category'),
 		description: Yup.string().required(),
-		// eventLink: Yup.string().required(),
-		// city: Yup.object().shape({
-		// 	address: Yup.string().required('City is required'),
-		// }),
-		// venue: Yup.object().shape({
-		// 	address: Yup.string().required('Venue is required'),
-		// }),
+		link: Yup.string().required('You must provide a link'),
+		eventNameLink: Yup.string().required('You must provide an event name link'),
 		date: Yup.string().required(),
 	})
 
@@ -120,14 +108,13 @@ function EventForm({ match, history, location }) {
 							options={categoryData}
 						/>
 						<Header sub color='teal' content='Host Event Description' />
-						{/* <CKEditor
-							onChang={(evt) => setEventDesc(evt.editor.getData())}
-							name='description'
-							placeholder='Description'
-						/> */}
+
 						<MyTextArea name='description' placeholder='Description' row={3} />
-						{/* <Header sub color='teal' content='Host Event Link' />
-						<MyTextInput name='Event Link' placeholder='Event Link' /> */}
+						<Header sub color='teal' content='Host Event Link' />
+						<MyTextInput name='link' placeholder='Event Link' />
+						<MyTextInput
+							name='eventNameLink'
+							placeholder='Event Name Link'></MyTextInput>
 
 						{/* <MyPlaceInput name='city' placeholder='City' />
 						<MyPlaceInput

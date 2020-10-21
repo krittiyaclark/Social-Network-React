@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import { Segment, Button, Grid, Icon } from 'semantic-ui-react'
 import { format } from 'date-fns'
-import EventDetailedMap from './EventDetailedMap'
 
 function EventDetailedInfo({ event }) {
-	const [mapOpen, setMapOpenToggle] = useState(false)
-
 	return (
 		<Segment.Group>
 			<Segment attached='top'>
@@ -15,6 +12,16 @@ function EventDetailedInfo({ event }) {
 					</Grid.Column>
 					<Grid.Column width={15}>
 						<p>{event.description}</p>
+					</Grid.Column>
+					<Grid.Column width={1}>
+						<Icon size='large' color='teal' name='linkify' />
+					</Grid.Column>
+					<Grid.Column width={15}>
+						<p>
+							<a href={event.link} target='_blank' rel='noopener noreferrer'>
+								{event.eventNameLink}
+							</a>
+						</p>
 					</Grid.Column>
 				</Grid>
 			</Segment>
@@ -28,25 +35,6 @@ function EventDetailedInfo({ event }) {
 					</Grid.Column>
 				</Grid>
 			</Segment>
-			<Segment attached>
-				<Grid verticalAlign='middle'>
-					<Grid.Column width={1}>
-						<Icon name='marker' size='large' color='teal' />
-					</Grid.Column>
-					{/* <Grid.Column width={11}>
-						<span>{event.venue.address}</span>
-					</Grid.Column> */}
-					<Grid.Column width={4}>
-						<Button
-							onClick={() => setMapOpenToggle(!mapOpen)}
-							color='teal'
-							size='tiny'
-							content={mapOpen ? 'Hide map' : 'Show Map'}
-						/>
-					</Grid.Column>
-				</Grid>
-			</Segment>
-			{mapOpen && <EventDetailedMap latLng={event.venue.latLng} />}
 		</Segment.Group>
 	)
 }

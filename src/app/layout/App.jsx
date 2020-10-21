@@ -17,7 +17,7 @@ import ProfilePage from '../../features/profiles/profilePage/ProfilePage'
 import PrivateRoute from './PrivateRoute'
 import Sidebarnav from '../../features/nav/Sidebarnav'
 
-function App({ onToggle }) {
+function App() {
 	const { key } = useLocation()
 	const { initialized } = useSelector((state) => state.async)
 	const [isOpen, setOpen] = useState(false)

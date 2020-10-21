@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import { Button, Menu, Segment, Sidebar, Responsive } from 'semantic-ui-react'
+import { Button, Menu, Sidebar } from 'semantic-ui-react'
 
 import SignedOutMenu from '../nav/SignedOutMenu'
 import SignedInMenu from '../nav/SignedInMenu'
