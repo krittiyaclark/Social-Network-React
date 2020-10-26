@@ -8,59 +8,56 @@ import { useDispatch } from 'react-redux'
 import { closeModal } from '../../app/common/modals/modalReducer'
 import { signInWithEmail } from '../../app/firestore/firebaseService'
 import SocialLogin from './SocialLogin'
+import { useHistory } from 'react-router-dom'
 
 function LoginForm() {
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
+	const history = useHistory()
 
 	return (
-		<ModalWrapper size='mini' header='Sign in to Social Network'>
-			<Formik
-				initialValues={{ email: '', password: '' }}
-				validationSchema={Yup.object({
-					email: Yup.string().required().email(),
-					password: Yup.string().required(),
-				})}
-				onSubmit={async (values, { setSubmitting, setErrors }) => {
-					try {
-						await signInWithEmail(values)
-						setSubmitting(false)
-						dispatch(closeModal())
-					} catch (error) {
-						setErrors({ auth: 'Problem with useramen or password' })
-						setSubmitting(false)
-					}
-				}}>
-				{({ isSubmitting, isValid, dirty, errors }) => (
-					<Form className='ui form'>
-						<MyTextInput name='email' placeholder='Email Address' />
-						<MyTextInput
-							name='password'
-							placeholder='Password'
-							type='password'
+		<Formik
+			initialValues={{ email: '', password: '' }}
+			validationSchema={Yup.object({
+				email: Yup.string().required().email(),
+				password: Yup.string().required(),
+			})}
+			onSubmit={async (values, { setSubmitting, setErrors }) => {
+				try {
+					await signInWithEmail(values)
+					setSubmitting(false)
+					history.push('/events')
+					// dispatch(closeModal())
+				} catch (error) {
+					setErrors({ auth: 'Problem with useramen or password' })
+					setSubmitting(false)
+				}
+			}}>
+			{({ isSubmitting, isValid, dirty, errors }) => (
+				<Form className='ui form'>
+					<MyTextInput name='email' placeholder='Email Address' />
+					<MyTextInput name='password' placeholder='Password' type='password' />
+					{errors.auth && (
+						<Label
+							basic
+							color='red'
+							style={{ marginBottom: 10 }}
+							content={errors.auth}
 						/>
-						{errors.auth && (
-							<Label
-								basic
-								color='red'
-								style={{ marginBottom: 10 }}
-								content={errors.auth}
-							/>
-						)}
-						<Button
-							loading={isSubmitting}
-							disabled={!isValid || !dirty || isSubmitting}
-							type='submit'
-							fluid
-							size='large'
-							color='teal'
-							content='Login'
-						/>
-						<Divider horizontal>Or</Divider>
-						<SocialLogin />
-					</Form>
-				)}
-			</Formik>
-		</ModalWrapper>
+					)}
+					<Button
+						loading={isSubmitting}
+						disabled={!isValid || !dirty || isSubmitting}
+						type='submit'
+						fluid
+						size='massive'
+						color='teal'
+						content='Login'
+					/>
+					<Divider horizontal>Or</Divider>
+					<SocialLogin />
+				</Form>
+			)}
+		</Formik>
 	)
 }
 

@@ -16,11 +16,15 @@ import LoadingComponent from './LoadingComponent'
 import ProfilePage from '../../features/profiles/profilePage/ProfilePage'
 import PrivateRoute from './PrivateRoute'
 import Sidebarnav from '../../features/nav/Sidebarnav'
+import LoginPage from '../../features/loginPage/LoginPage'
+import RegisterPage from '../../features/RegisterPage/RegisterPage'
+import AboutPage from '../../features/about/AboutPage'
 
 function App() {
 	const { key } = useLocation()
 	const { initialized } = useSelector((state) => state.async)
 	const [isOpen, setOpen] = useState(false)
+	const { currentUser } = useSelector((state) => state.auth)
 
 	if (!initialized) return <LoadingComponent content='Loading app...' />
 
@@ -37,6 +41,9 @@ function App() {
 					<>
 						<NavBar onToggle={handleToggle} />
 						<Sidebarnav onToggle={isOpen} />
+						<PrivateRoute>
+							<Route exact path='/about' component={AboutPage} />
+						</PrivateRoute>
 						<Container className='main'>
 							<Route exact path='/events' component={EventDashboard} />
 							<Route path='/events/:id' component={EventDetailedPage} />
@@ -47,6 +54,12 @@ function App() {
 							/>
 							<PrivateRoute path='/account' component={AccountPage} />
 							<PrivateRoute path='/profile/:id' component={ProfilePage} />
+							<PrivateRoute>
+								<Route exact path='/login' component={LoginPage} />
+							</PrivateRoute>
+							<PrivateRoute>
+								<Route exact path='/register' component={RegisterPage} />
+							</PrivateRoute>
 							<Route path='/error' component={ErrorComponent} />
 						</Container>
 					</>

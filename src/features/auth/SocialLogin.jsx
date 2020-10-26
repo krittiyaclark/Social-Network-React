@@ -19,6 +19,7 @@ function SocialLogin() {
 				icon='facebook'
 				fluid
 				color='facebook'
+				size='massive'
 				style={{ marginBottom: 10 }}
 				content='Login with Facebook'
 			/>
@@ -27,6 +28,7 @@ function SocialLogin() {
 				icon='google'
 				fluid
 				color='google plus'
+				size='massive'
 				content='Login with Google'
 			/>
 		</>
