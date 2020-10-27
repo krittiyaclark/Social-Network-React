@@ -25,6 +25,28 @@ body {
 	color: #ffffff;
 }
 
+.page .ui.container {
+	margin: 7em 0 7em 0;
+}
+
+.page .ui.container h1 {
+	font-size: 4em;
+}
+
+.page .ui.container p {
+	font-size: 1.7em;
+	margin: 2em 0;
+}
+
+.ui.header.title {
+	margin-bottom: 2em;
+}
+
+.footer .ui.container {
+	margin: 30px 0;
+	padding: 20px 0;
+}
+
 p.homepage-font-size {
 	font-size: 2em;
 	padding: 1em 0;

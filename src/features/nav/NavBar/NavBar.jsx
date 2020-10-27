@@ -40,6 +40,9 @@ function NavBar({ onToggle }) {
 							/>
 							Social Network
 						</Menu.Item>
+						{!authenticated && (
+							<Menu.Item as={NavLink} to='/about' name='About' />
+						)}
 						<Menu.Item as={NavLink} to='/events' name='Events' />
 						{authenticated && (
 							<Menu.Item as={NavLink} to='/createEvent'>
