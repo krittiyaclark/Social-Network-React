@@ -39,10 +39,10 @@ export default function RegisterForm() {
 					<MyTextInput
 						name='displayName'
 						size='massive'
-						placeholder='DisplayName'
+						placeholder='DisplayName*'
 					/>
-					<MyTextInput name='email' placeholder='Email Address' />
-					<MyTextInput name='password' placeholder='Password' type='password' />
+					<MyTextInput name='email' placeholder='Email Address*' />
+					<MyTextInput name='password' placeholder='Password*' type='password' />
 					{errors.auth && (
 						<Label
 							basic

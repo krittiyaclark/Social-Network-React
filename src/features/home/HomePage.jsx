@@ -1,7 +1,6 @@
 import React from 'react'
 import {
 	Segment,
-	Container,
 	Header,
 	Image,
 	Button,

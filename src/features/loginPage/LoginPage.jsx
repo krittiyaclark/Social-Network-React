@@ -23,6 +23,12 @@ function LoginPage() {
 						Sign Up
 					</Menu.Item>
 				</Message>
+
+				<Message>
+					<Menu.Item as={NavLink} to='/recovery'>
+					Forgot your Password?
+					</Menu.Item>
+				</Message>
 			</Grid.Column>
 		</Grid>
 	)

@@ -57,6 +57,12 @@ export function updateUserPassword(creds) {
 	return user.updatePassword(creds.newPassword1)
 }
 
+
+export function resetPassword(creds) {
+	const user = firebase.auth()
+	return user.sendPasswordResetEmail(creds.email,)
+}
+
 export function uploadToFirebaseStorage(file, filename) {
 	const user = firebase.auth().currentUser
 	const storageRef = firebase.storage().ref()

@@ -17,8 +17,10 @@ import ProfilePage from '../../features/profiles/profilePage/ProfilePage'
 import PrivateRoute from './PrivateRoute'
 import Sidebarnav from '../../features/nav/Sidebarnav'
 import LoginPage from '../../features/loginPage/LoginPage'
-import RegisterPage from '../../features/RegisterPage/RegisterPage'
+import RegisterPage from '../../features/registerPage/RegisterPage'
 import AboutPage from '../../features/about/AboutPage'
+import Recovery from '../../features/recoveryPage/RecoveryPage'
+
 
 function App() {
 	const { key } = useLocation()
@@ -60,6 +62,7 @@ function App() {
 							<PrivateRoute>
 								<Route exact path='/register' component={RegisterPage} />
 							</PrivateRoute>
+							<Route path='/recovery' component={Recovery} />
 							<Route path='/error' component={ErrorComponent} />
 						</Container>
 					</>
