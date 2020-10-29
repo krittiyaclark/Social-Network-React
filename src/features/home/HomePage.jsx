@@ -15,11 +15,10 @@ import RegisterForm from '../auth/RegisterForm'
 
 function HomePage({ history }) {
 	return (
-		<Segment inverted textAlign='left' vertical className='masthead'>
-			{/* <Container> */}
+		<Segment textAlign='left' vertical className='masthead'>
 			<Grid container stackable verticalAlign='middle'>
 				<Grid.Row>
-					<Grid.Column width={10}>
+					<Grid.Column width={8}>
 						<Header as='h1' inverted size='huge'>
 							<Image
 								size='massive'
@@ -28,26 +27,10 @@ function HomePage({ history }) {
 							/>
 						</Header>
 						<Item.Content>
-							<Header as='h1' size='large' className='subhead'>
-								Meet people on virtual event
+							<Header as='h1' size='large' className='subhead' color='black'>
+								Host your virtual events that matter to you
 							</Header>
 						</Item.Content>
-						<Item.Content>
-							<p className='homepage-font-size'>
-								Host Your Virtual Event And Share With Your Friends
-							</p>
-						</Item.Content>
-
-						<Button
-							onClick={() => history.push('/events')}
-							size='huge'
-							inverted>
-							Get started
-							<Icon name='right arrow' inverted />
-						</Button>
-					</Grid.Column>
-
-					<Grid.Column width={6}>
 						<RegisterForm />
 						<p className='homepage-font-size link'>
 							Already have an account?{' '}
@@ -55,10 +38,21 @@ function HomePage({ history }) {
 								Login
 							</Menu.Item>
 						</p>
+
+						<Button
+							onClick={() => history.push('/events')}
+							size='huge'
+							color='teal'>
+							Get started
+							<Icon name='right arrow' inverted />
+						</Button>
+					</Grid.Column>
+
+					<Grid.Column width={8}>
+						<Image src='../../assets/Zoom-Meeting.svg' size='massive' />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>
-			{/* </Container> */}
 		</Segment>
 	)
 }

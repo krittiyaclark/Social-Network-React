@@ -12,7 +12,7 @@ function NavBar({ onToggle }) {
 	return (
 		<>
 			<Responsive {...Responsive.onlyMobile}>
-				<Menu inverted fixed='top'>
+				<Menu fixed='top'>
 					<Container>
 						<Menu.Item as={NavLink} exact to='/' header>
 							<img
@@ -30,7 +30,7 @@ function NavBar({ onToggle }) {
 			</Responsive>
 
 			<Responsive minWidth={Responsive.onlyTablet.minWidth}>
-				<Menu inverted fixed='top'>
+				<Menu fixed='top'>
 					<Container>
 						<Menu.Item as={NavLink} exact to='/' header>
 							<img
@@ -58,22 +58,3 @@ function NavBar({ onToggle }) {
 }
 
 export default NavBar
-
-// <Container>
-// 	<Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
-// 		<Navbar.Brand href='/'>
-// 			<img src='/assets/logo.png' alt='logo' style={{ marginRight: 15 }} />
-// 			Social Network
-// 		</Navbar.Brand>
-// 		<Navbar.Toggle aria-controls='responsive-navbar-nav' />
-// 		<Navbar.Collapse id='responsive-navbar-nav'>
-// 			<Nav className='mr-auto'>
-// 				<Nav.Link href='/events'>Events</Nav.Link>
-// 				{authenticated && (
-// 					<Nav.Link href='/createEvent'>Create Event</Nav.Link>
-// 				)}
-// 			</Nav>
-// 			<Nav>{authenticated ? <SignedInMenu /> : <SignedOutMenu />}</Nav>
-// 		</Navbar.Collapse>
-// 	</Navbar>
-// </Container>

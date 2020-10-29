@@ -1,9 +1,5 @@
 body {
-	background-color: #eaeaea;
-}
-
-.ui.fixed.menu {
-	background: #000000 !important;
+	background-color: #f3f3f3;
 }
 
 .ui.main.container {
@@ -13,16 +9,17 @@ body {
 .masthead {
 	display: flex;
 	align-items: center;
-	background: #000000 !important;
 	height: 100vh;
+}
+
+.segment.masthead {
+	background: url('../../assets/circle-pink-background.svg') no-repeat center
+		center fixed !important;
+	background-size: cover;
 }
 
 .masthead h1.ui.header {
 	font-size: 4em;
-}
-
-.masthead h1.ui.header.subhead {
-	color: #ffffff;
 }
 
 .page .ui.container {

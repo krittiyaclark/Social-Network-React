@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Modal, Button, Divider } from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
+import { Modal, Button, Divider, Menu } from 'semantic-ui-react'
 import { openModal } from '../../app/common/modals/modalReducer'
 
 function UnauthModal({ history, setModalOpen }) {
@@ -33,20 +34,19 @@ function UnauthModal({ history, setModalOpen }) {
 			<Modal.Header content='You need to be signed in to do that' />
 			<Modal.Content>
 				<p>Please either login or register to see this content</p>
-				<Button.Group widths={4}>
-					<Button
-						fluid
-						color='teal'
-						content='Login'
-						onClick={() => handleOpenLoginModal('LoginForm')}
-					/>
+				<Button.Group widths={4} style={{ textAlign: 'center !important' }}>
+					<Menu.Item as={NavLink} to='/login'>
+						<Button fluid color='teal' content='Login' />
+					</Menu.Item>
 					<Button.Or />
-					<Button
-						fluid
-						color='green'
-						content='Register'
-						onClick={() => handleOpenLoginModal('RegisterForm')}
-					/>
+					<Menu.Item as={NavLink} to='/register'>
+						<Button
+							fluid
+							color='green'
+							content='Register'
+							style={{ marginLeft: '0.5em' }}
+						/>
+					</Menu.Item>
 				</Button.Group>
 				<Divider />
 				<div style={{ textAlign: 'center' }}>

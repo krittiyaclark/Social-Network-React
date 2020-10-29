@@ -21,7 +21,6 @@ import RegisterPage from '../../features/registerPage/RegisterPage'
 import AboutPage from '../../features/about/AboutPage'
 import Recovery from '../../features/recoveryPage/RecoveryPage'
 
-
 function App() {
 	const { key } = useLocation()
 	const { initialized } = useSelector((state) => state.async)
@@ -43,9 +42,7 @@ function App() {
 					<>
 						<NavBar onToggle={handleToggle} />
 						<Sidebarnav onToggle={isOpen} />
-						<PrivateRoute>
-							<Route exact path='/about' component={AboutPage} />
-						</PrivateRoute>
+						<Route exact path='/about' component={AboutPage} />
 						<Container className='main'>
 							<Route exact path='/events' component={EventDashboard} />
 							<Route path='/events/:id' component={EventDetailedPage} />
@@ -56,13 +53,9 @@ function App() {
 							/>
 							<PrivateRoute path='/account' component={AccountPage} />
 							<PrivateRoute path='/profile/:id' component={ProfilePage} />
-							<PrivateRoute>
-								<Route exact path='/login' component={LoginPage} />
-							</PrivateRoute>
-							<PrivateRoute>
-								<Route exact path='/register' component={RegisterPage} />
-							</PrivateRoute>
-							<Route path='/recovery' component={Recovery} />
+							<Route exact path='/login' component={LoginPage} />
+							<Route exact path='/register' component={RegisterPage} />
+							<Route exact path='/recovery' component={Recovery} />
 							<Route path='/error' component={ErrorComponent} />
 						</Container>
 					</>
