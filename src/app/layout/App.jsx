@@ -36,7 +36,11 @@ function App() {
 			<ModalManager />
 			<ToastContainer position='bottom-right' hideProgressBar />
 			<NavBar onToggle={handleToggle} />
-			<Route exact path='/' component={HomePage} />
+			<Route
+				exact
+				path='/'
+				render={() => <HomePage onToggle={handleToggle} />}
+			/>
 			{/* <Route
 				path={'/(.+)'}
 				render={() => (

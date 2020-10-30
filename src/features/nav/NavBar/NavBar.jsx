@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import SignedOutMenu from '../SignedOutMenu'
@@ -15,7 +15,11 @@ import {
 
 function NavBar({ onToggle }) {
 	const { authenticated } = useSelector((state) => state.auth)
+	const [isOpen, setOpen] = useState(false)
 
+	const handleToggle = () => {
+		setOpen(!isOpen)
+	}
 	return (
 		<>
 			<Responsive {...Responsive.onlyMobile} style={{ marginBottom: 90 }}>
@@ -30,7 +34,7 @@ function NavBar({ onToggle }) {
 							/>
 						</Menu.Item>
 						<Menu.Item onClick={onToggle}>
-							<Icon name='sidebar' />
+							<Icon name='sidebar' onClick={handleToggle} />
 						</Menu.Item>
 					</Container>
 				</Menu>
