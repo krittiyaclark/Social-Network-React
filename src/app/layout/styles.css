@@ -6,11 +6,15 @@ body {
 	margin-top: 7em;
 }
 
-.masthead {
+/* .masthead {
 	display: flex;
 	align-items: center;
 	height: 100vh;
-}
+
+	background: url('../../assets/circle-pink-background.svg') no-repeat center
+		center fixed !important;
+	background-size: cover;
+} */
 
 .segment.masthead {
 	background: url('../../assets/circle-pink-background.svg') no-repeat center

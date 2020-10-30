@@ -35,33 +35,33 @@ function App() {
 		<>
 			<ModalManager />
 			<ToastContainer position='bottom-right' hideProgressBar />
+			<NavBar onToggle={handleToggle} />
 			<Route exact path='/' component={HomePage} />
-			<Route
+			{/* <Route
 				path={'/(.+)'}
 				render={() => (
-					<>
-						<NavBar onToggle={handleToggle} />
-						<Sidebarnav onToggle={isOpen} />
-						<Route exact path='/about' component={AboutPage} />
-						<Container className='main'>
-							<Route exact path='/events' component={EventDashboard} />
-							<Route path='/events/:id' component={EventDetailedPage} />
-							<PrivateRoute
-								path={['/createEvent', '/manage/:id']}
-								component={EventForm}
-								key={key}
-							/>
-							<PrivateRoute path='/account' component={AccountPage} />
-							<PrivateRoute path='/profile/:id' component={ProfilePage} />
-							<Route exact path='/login' component={LoginPage} />
-							<Route exact path='/register' component={RegisterPage} />
-							<Route exact path='/recovery' component={Recovery} />
-							<Route path='/error' component={ErrorComponent} />
-						</Container>
-					</>
-				)}
-			/>
+					<> */}
+			<Sidebarnav onToggle={isOpen} />
+			<Route exact path='/about' component={AboutPage} />
+			<Container className='main'>
+				<Route exact path='/events' component={EventDashboard} />
+				<Route path='/events/:id' component={EventDetailedPage} />
+				<PrivateRoute
+					path={['/createEvent', '/manage/:id']}
+					component={EventForm}
+					key={key}
+				/>
+				<PrivateRoute path='/account' component={AccountPage} />
+				<PrivateRoute path='/profile/:id' component={ProfilePage} />
+				<Route exact path='/login' component={LoginPage} />
+				<Route exact path='/register' component={RegisterPage} />
+				<Route exact path='/recovery' component={Recovery} />
+				<Route path='/error' component={ErrorComponent} />
+			</Container>
 		</>
+		// 		)}
+		// 	/>
+		// </>
 	)
 }
 

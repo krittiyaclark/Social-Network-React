@@ -4,23 +4,30 @@ import { useSelector } from 'react-redux'
 
 import SignedOutMenu from '../SignedOutMenu'
 import SignedInMenu from '../SignedInMenu'
-import { Button, Container, Menu, Icon, Responsive } from 'semantic-ui-react'
+import {
+	Button,
+	Container,
+	Menu,
+	Icon,
+	Responsive,
+	Image,
+} from 'semantic-ui-react'
 
 function NavBar({ onToggle }) {
 	const { authenticated } = useSelector((state) => state.auth)
 
 	return (
 		<>
-			<Responsive {...Responsive.onlyMobile}>
+			<Responsive {...Responsive.onlyMobile} style={{ marginBottom: 90 }}>
 				<Menu fixed='top'>
 					<Container>
 						<Menu.Item as={NavLink} exact to='/' header>
-							<img
-								src='/assets/logo.png'
+							<Image
+								src='/assets/ViiHost-black.svg'
 								alt='logo'
+								size='small'
 								style={{ marginRight: 15 }}
 							/>
-							Social Network
 						</Menu.Item>
 						<Menu.Item onClick={onToggle}>
 							<Icon name='sidebar' />
@@ -33,12 +40,12 @@ function NavBar({ onToggle }) {
 				<Menu fixed='top'>
 					<Container>
 						<Menu.Item as={NavLink} exact to='/' header>
-							<img
-								src='/assets/logo.png'
+							<Image
+								src='/assets/ViiHost-black.svg'
 								alt='logo'
+								size='small'
 								style={{ marginRight: 15 }}
 							/>
-							Social Network
 						</Menu.Item>
 						{!authenticated && (
 							<Menu.Item as={NavLink} to='/about' name='About' />

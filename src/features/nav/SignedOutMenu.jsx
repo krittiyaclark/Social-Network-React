@@ -12,7 +12,7 @@ function SignedOutMenu({ setAuthenticated }) {
 				<Button basic content='Login' />
 			</Menu.Item>
 			<Menu.Item as={NavLink} to='/register'>
-				<Button basic content='Register' style={{ marginLeft: '0.5em' }} />
+				<Button basic content='Register' />
 			</Menu.Item>
 		</Menu.Item>
 	)

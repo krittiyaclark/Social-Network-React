@@ -31,22 +31,25 @@ function UnauthModal({ history, setModalOpen }) {
 
 	return (
 		<Modal open={open} size='mini' onClose={handleClose}>
-			<Modal.Header content='You need to be signed in to do that' />
+			<Modal.Header
+				content='You need to be signed in to do that'
+				style={{ textAlign: 'center' }}
+			/>
 			<Modal.Content>
-				<p>Please either login or register to see this content</p>
-				<Button.Group widths={4} style={{ textAlign: 'center !important' }}>
-					<Menu.Item as={NavLink} to='/login'>
-						<Button fluid color='teal' content='Login' />
-					</Menu.Item>
+				<p style={{ textAlign: 'center' }}>
+					Please either login or register to see this content
+				</p>
+				<Button.Group widths={4}>
+					<Button fluid color='teal' content='Login' as={NavLink} to='/login' />
 					<Button.Or />
-					<Menu.Item as={NavLink} to='/register'>
-						<Button
-							fluid
-							color='green'
-							content='Register'
-							style={{ marginLeft: '0.5em' }}
-						/>
-					</Menu.Item>
+					<Button
+						fluid
+						color='green'
+						content='Register'
+						as={NavLink}
+						to='/register'
+						style={{ marginLeft: '0.5em' }}
+					/>
 				</Button.Group>
 				<Divider />
 				<div style={{ textAlign: 'center' }}>
