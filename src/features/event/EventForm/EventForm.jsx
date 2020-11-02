@@ -1,4 +1,4 @@
-/* global google */
+// /* global google */
 import React, { useState, useEffect } from 'react'
 import { Segment, Button, Header, Confirm } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
@@ -7,7 +7,6 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { Redirect } from 'react-router-dom'
 import { toast } from 'react-toastify'
-// import CKEditor from 'ckeditor4-react'
 
 import { clearSelectedEvent, listenToSelectedEvent } from '../eventActions'
 import MyTextInput from '../../../app/common/form/MyTextInput'
@@ -15,7 +14,6 @@ import MyTextArea from '../../../app/common/form/MyTextArea'
 import MySelectInput from '../../../app/common/form/MySelectInput'
 import { categoryData } from '../../../app/api/categoryOptions'
 import MyDateInput from '../../../app/common/form/MyDateInput'
-import MyPlaceInput from '../../../app/common/form/MyPlaceInput'
 import LoadingComponent from '../../../app/layout/LoadingComponent'
 import useFirestoreDoc from '../../../app/hooks/useFirestoreDoc'
 import {
@@ -31,7 +29,6 @@ function EventForm({ match, history, location }) {
 	const [confirmOpen, setConfirmOpen] = useState(false)
 	const { selectedEvent } = useSelector((state) => state.event)
 	const { loading, error } = useSelector((state) => state.async)
-	const [eventDesc, setEventDesc] = useState('')
 
 	useEffect(() => {
 		if (location.pathname !== '/createEvent') return
@@ -101,7 +98,11 @@ function EventForm({ match, history, location }) {
 				{({ isSubmitting, dirty, isValid, values }) => (
 					<Form className='ui form'>
 						<Header sub color='teal' content='Event Detail' />
-						<MyTextInput name='title' placeholder='Event title' />
+						<MyTextInput
+							className='placeholder-font-size'
+							name='title'
+							placeholder='Event title'
+						/>
 						<MySelectInput
 							name='category'
 							placeholder='Category'
@@ -110,23 +111,16 @@ function EventForm({ match, history, location }) {
 						<Header sub color='teal' content='Host Event Description' />
 
 						<MyTextArea name='description' placeholder='Description' row={3} />
-						<Header sub color='teal' content='Host Event Link' />
-						<MyTextInput name='link' placeholder='Event Link' />
+						<Header sub color='teal' content='Host Virtual Event Link' />
 						<MyTextInput
+							className='placeholder-font-size'
+							name='link'
+							placeholder='Paste an event virtual URL, e.g., https://zoom.us/j/555111222 or http://hangouts.google.com/start '
+						/>
+						<MyTextInput
+							className='placeholder-font-size'
 							name='eventNameLink'
-							placeholder='Event Name Link'></MyTextInput>
-
-						{/* <MyPlaceInput name='city' placeholder='City' />
-						<MyPlaceInput
-							name='venue'
-							disabled={!values.city.latLng}
-							placeholder='Venue'
-							options={{
-								location: new google.maps.LatLng(values.city.latLng),
-								radius: 1000,
-								types: ['establishment'],
-							}}
-						/> */}
+							placeholder='Write an event name URL. This name will be shown in your event description.'></MyTextInput>
 						<MyDateInput
 							name='date'
 							placeholderText='Event date'

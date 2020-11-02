@@ -12,8 +12,7 @@ function EventDetailedSidebar({ attendees, hostUid }) {
 				secondary
 				inverted
 				color='teal'>
-				{attendees.length} {attendees.length > 1 ? 'people' : 'Person'} Goinng
-				Going
+				{attendees.length} {attendees.length > 1 ? 'people' : 'Person'} Going
 			</Segment>
 			<Segment attached>
 				<Item.Group relaxed divided>

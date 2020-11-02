@@ -25,7 +25,7 @@ function App() {
 	const { key } = useLocation()
 	const { initialized } = useSelector((state) => state.async)
 	const [isOpen, setOpen] = useState(false)
-	const { currentUser } = useSelector((state) => state.auth)
+	// const { currentUser } = useSelector((state) => state.auth)
 
 	if (!initialized) return <LoadingComponent content='Loading app...' />
 

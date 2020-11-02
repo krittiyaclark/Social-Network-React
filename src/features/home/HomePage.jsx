@@ -8,8 +8,6 @@ import {
 	Item,
 	Grid,
 	Menu,
-	Container,
-	Divider,
 	Responsive,
 } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
@@ -31,7 +29,7 @@ function HomePage({ history, onToggle }) {
 										size='large'
 										className='subhead'
 										color='black'>
-										Host your virtual events that matter to you
+										Host your virtual events that spark your interest
 									</Header>
 								</Item.Content>
 								<RegisterForm />
@@ -75,7 +73,7 @@ function HomePage({ history, onToggle }) {
 										size='large'
 										className='subhead'
 										color='black'>
-										Host your virtual events that matter to you
+										Host your virtual events that spark your interest
 									</Header>
 								</Item.Content>
 								<RegisterForm />
