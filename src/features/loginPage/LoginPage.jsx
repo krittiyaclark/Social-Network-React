@@ -1,11 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import { Grid, Header, Icon, Menu, Message, Segment } from 'semantic-ui-react'
 import LoginForm from '../../features/auth/LoginForm'
 
 function LoginPage() {
-	const { currentUser } = useSelector((state) => state.auth)
+	// const { currentUser } = useSelector((state) => state.auth)
 
 	return (
 		<Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -26,7 +25,7 @@ function LoginPage() {
 
 				<Message>
 					<Menu.Item as={NavLink} to='/recovery'>
-					Forgot your Password?
+						Forgot your Password?
 					</Menu.Item>
 				</Message>
 			</Grid.Column>

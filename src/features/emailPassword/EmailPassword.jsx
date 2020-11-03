@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
@@ -14,12 +13,12 @@ const EmailPassword = () => {
 	const [errors, setErrors] = useState('')
 
 	const config = {
-		url: 'http://localhost:3000/login'
+		url: 'http://localhost:3000/login',
 	}
 
 	return (
 		<Formik
-			initialValues={{ email: ''}}
+			initialValues={{ email: '' }}
 			validationSchema={Yup.object({
 				email: Yup.string().required().email(),
 			})}
@@ -33,8 +32,7 @@ const EmailPassword = () => {
 					setErrors({ auth: error.message })
 					setSubmitting(false)
 				}
-			}}
-			>
+			}}>
 			{({ isSubmitting, isValid, dirty, errors }) => (
 				<Form className='ui form'>
 					<MyTextInput name='email' placeholder='Email Address*' />

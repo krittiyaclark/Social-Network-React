@@ -1,17 +1,13 @@
 import React from 'react'
-import ModalWrapper from '../../app/common/modals/modalWrapper'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import MyTextInput from '../../app/common/form/MyTextInput'
 import { Button, Label, Divider } from 'semantic-ui-react'
-import { useDispatch } from 'react-redux'
-import { closeModal } from '../../app/common/modals/modalReducer'
 import { signInWithEmail } from '../../app/firestore/firebaseService'
 import SocialLogin from './SocialLogin'
 import { useHistory } from 'react-router-dom'
 
 function LoginForm() {
-	// const dispatch = useDispatch()
 	const history = useHistory()
 
 	return (
@@ -26,7 +22,6 @@ function LoginForm() {
 					await signInWithEmail(values)
 					setSubmitting(false)
 					history.push('/events')
-					// dispatch(closeModal())
 				} catch (error) {
 					setErrors({ auth: 'Problem with useramen or password' })
 					setSubmitting(false)

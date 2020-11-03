@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Segment, Button, Grid, Icon } from 'semantic-ui-react'
+import React from 'react'
+import { Segment, Grid, Icon } from 'semantic-ui-react'
 import { format } from 'date-fns'
 
 function EventDetailedInfo({ event }) {

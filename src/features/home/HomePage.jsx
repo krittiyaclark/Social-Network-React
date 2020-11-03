@@ -83,14 +83,6 @@ function HomePage({ history, onToggle }) {
 										Login
 									</Menu.Item>
 								</p>
-
-								<Button
-									onClick={() => history.push('/events')}
-									size='huge'
-									color='teal'>
-									Get started
-									<Icon name='right arrow' inverted />
-								</Button>
 							</Grid.Column>
 
 							<Grid.Column width={8}>

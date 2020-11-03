@@ -1,21 +1,16 @@
 import React from 'react'
-import ModalWrapper from '../../app/common/modals/modalWrapper'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import MyTextInput from '../../app/common/form/MyTextInput'
 import { Button, Label, Divider } from 'semantic-ui-react'
-import { useDispatch } from 'react-redux'
-import { closeModal } from '../../app/common/modals/modalReducer'
 import { registerInFirebase } from '../../app/firestore/firebaseService'
 import SocialLogin from './SocialLogin'
 import { useHistory } from 'react-router-dom'
 
 export default function RegisterForm() {
-	// const dispatch = useDispatch()
 	const history = useHistory()
 
 	return (
-		// <ModalWrapper size='mini' header='Register to Re-vents'>
 		<Formik
 			initialValues={{ displayName: '', email: '', password: '' }}
 			validationSchema={Yup.object({
@@ -42,7 +37,11 @@ export default function RegisterForm() {
 						placeholder='DisplayName*'
 					/>
 					<MyTextInput name='email' placeholder='Email Address*' />
-					<MyTextInput name='password' placeholder='Password*' type='password' />
+					<MyTextInput
+						name='password'
+						placeholder='Password*'
+						type='password'
+					/>
 					{errors.auth && (
 						<Label
 							basic
@@ -65,6 +64,5 @@ export default function RegisterForm() {
 				</Form>
 			)}
 		</Formik>
-		// {/* </ModalWrapper> */}
 	)
 }

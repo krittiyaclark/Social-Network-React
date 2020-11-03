@@ -1,14 +1,5 @@
 import React from 'react'
-import {
-	Button,
-	Divider,
-	Grid,
-	Header,
-	Icon,
-	Image,
-	Item,
-	Segment,
-} from 'semantic-ui-react'
+import { Button, Divider, Grid, Header, Icon, Segment } from 'semantic-ui-react'
 import Footer from '../footer/Footer'
 
 function AboutPage() {
@@ -20,25 +11,17 @@ function AboutPage() {
 						<Grid.Column width={16} textAlign='center'>
 							<Header as='h1'>ViiHost connects the world</Header>
 							<p>
-								Hi, I'm Krittiya. I'm a founder of ViiHost. I created ViiHost to
-								help people share their hosting virtual event experiences in
-								real time with their friends and family right here at ViiHost.
-							</p>
-							<Divider fitted />
-							<p>
 								ViiHost is a virtual social networking event designed to help
 								people find and build a global community of people who can
 								create hosting virtual events, meet new virtual friends, learn
 								new things, pursue passions, and hobbies to share with their
 								friends, and grow their network.
 							</p>
-						</Grid.Column>
-					</Grid.Row>
-					<Grid.Row>
-						<Grid.Column textAlign='center' style={{ padding: '8em 0em' }}>
-							<Button size='massive' color='teal'>
-								Join ViiHost
-							</Button>
+							<Divider fitted />
+							<p>
+								ViiHost lets you share your virtual hosting experiences in real
+								time with your friends and family right here at ViiHost.
+							</p>
 						</Grid.Column>
 					</Grid.Row>
 
@@ -77,35 +60,11 @@ function AboutPage() {
 							</p>
 						</Grid.Column>
 					</Grid.Row>
-
 					<Grid.Row>
-						<Grid.Column width={8} textAlign='center'>
-							<p>
-								ViiHost is free to join but if you find it helpful. Please
-								consider shifting some money in to keep ViiHost going. Thank you
-								for all your support!
-							</p>
-							<Button size='massive' color='yellow'>
-								Patron
+						<Grid.Column textAlign='center' style={{ padding: '8em 0em' }}>
+							<Button size='massive' color='teal'>
+								Join ViiHost
 							</Button>
-						</Grid.Column>
-
-						<Grid.Column
-							width={8}
-							textAlign='center'
-							style={{ padding: '8em 0em' }}>
-							<Item.Content>
-								<Image
-									size='tiny'
-									circular
-									src='../../../assets/Krittiya_Clark.jpg'
-									avatar
-									verticalAlign='middle'
-								/>{' '}
-								<span>
-									<b>Krittiya Clark</b>, Founder of ViiHost
-								</span>
-							</Item.Content>
 						</Grid.Column>
 					</Grid.Row>
 				</Grid>

@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { Modal, Button, Divider, Menu } from 'semantic-ui-react'
-import { openModal } from '../../app/common/modals/modalReducer'
+import { Modal, Button, Divider } from 'semantic-ui-react'
 
 function UnauthModal({ history, setModalOpen }) {
 	const [open, setOpen] = useState(true)
 	const { prevLocation } = useSelector((state) => state.auth)
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 
 	function handleClose() {
 		if (!history) {
@@ -23,11 +22,11 @@ function UnauthModal({ history, setModalOpen }) {
 		setOpen(false)
 	}
 
-	function handleOpenLoginModal(modalType) {
-		dispatch(openModal({ modalType }))
-		setOpen(false)
-		setModalOpen(false)
-	}
+	// function handleOpenLoginModal(modalType) {
+	// 	dispatch(openModal({ modalType }))
+	// 	setOpen(false)
+	// 	setModalOpen(false)
+	// }
 
 	return (
 		<Modal open={open} size='mini' onClose={handleClose}>
