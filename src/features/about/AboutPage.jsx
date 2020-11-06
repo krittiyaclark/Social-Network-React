@@ -14,8 +14,8 @@ function AboutPage() {
 								ViiHost is a virtual social networking event designed to help
 								people find and build a global community of people who can
 								create hosting virtual events, meet new virtual friends, learn
-								new things, pursue passions, and hobbies to share with their
-								friends, and grow their network.
+								new things, pursue passions, and hobbies (and get your followers
+								to join the event), and grow their network of followers.
 							</p>
 							<Divider fitted />
 							<p>

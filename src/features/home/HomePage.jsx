@@ -57,7 +57,7 @@ function HomePage({ history, onToggle }) {
 				</Segment>
 				<Footer />
 			</Responsive>
-			{/* <Container className='masthead'> */}
+
 			<Responsive minWidth={Responsive.onlyTablet.minWidth}>
 				<Segment textAlign='left' vertical className='masthead'>
 					<Grid
@@ -91,7 +91,7 @@ function HomePage({ history, onToggle }) {
 						</Grid.Row>
 					</Grid>
 				</Segment>
-				{/* </Container> */}
+
 				<Footer />
 			</Responsive>
 		</>

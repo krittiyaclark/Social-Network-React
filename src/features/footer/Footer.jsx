@@ -11,7 +11,8 @@ function Footer() {
 						<Grid.Column width={16} textAlign='center'>
 							<p>
 								Copyright &copy;{' '}
-								<script>document.write(new Date().getFullYear())</script>- ViVii
+								<script>document.write(new Date().getFullYear())</script>-
+								ViiHost
 							</p>
 						</Grid.Column>
 					</Grid.Row>

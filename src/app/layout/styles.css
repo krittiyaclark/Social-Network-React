@@ -22,6 +22,10 @@ body {
 	background-size: cover;
 }
 
+.ui.vertical.left.aligned.segment.masthead {
+	margin-top: 74px;
+}
+
 .masthead h1.ui.header {
 	font-size: 4em;
 }
